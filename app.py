@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Flask app is running"
+    return """
 <!DOCTYPE html>
 <html lang="en">
 
