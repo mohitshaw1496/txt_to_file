@@ -1,11 +1,11 @@
 # Use a Python 3.12.3 Alpine base image
-FROM python:3.12-alpine3.20
+FROM python:3.11-slim
 
 # Set the working directory
 WORKDIR /app
 
 # Copy all files from the current directory to the container's /app directory
-COPY . .
+COPY requirements.txt
 
 # Install necessary dependencies
 RUN apk add --no-cache \
@@ -31,8 +31,9 @@ RUN apk add --no-cache \
 # Install Python dependencies
 RUN pip3 install --no-cache-dir --upgrade pip \
     && pip3 install --no-cache-dir --upgrade -r sainibots.txt \
-    && python3 -m pip install -U yt-dlp
+    && python3 -m pip install -U yt-dlp \
+    && pip install --no-cache-dir -r requirements.txt
 
 # Set the command to run the application
-CMD ["sh", "-c", "gunicorn app:app & python3 modules/main.py"]
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:$PORT app:app & python3 modules/main.py"]
 
