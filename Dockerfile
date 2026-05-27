@@ -1,15 +1,9 @@
-# Use a Python 3.12.3 Alpine base image
 FROM python:3.11-slim
 
-# Set the working directory
 WORKDIR /app
 
 COPY requirements.txt .
 
-# Copy all files from the current directory to the container's /app directory
-COPY . .
-
-# Install necessary dependencies
 RUN apk add --no-cache \
     gcc \
     libffi-dev \
@@ -30,13 +24,10 @@ RUN apk add --no-cache \
     cd ../.. && \
     rm -rf Bento4-1.6.0-639 v1.6.0-639.zip
 
-# Install Python dependencies
-RUN pip3 install --no-cache-dir --upgrade pip \
-    && pip3 install --no-cache-dir --upgrade -r sainibots.txt \
-    && python3 -m pip install -U yt-dlp \
-    && pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
 
 EXPOSE 10000
 
-# Set the command to run the application
 CMD ["gunicorn", "--bind", "0.0.0.0:10000", "app:app"]
