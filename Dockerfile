@@ -4,8 +4,10 @@ FROM python:3.11-slim
 # Set the working directory
 WORKDIR /app
 
+COPY requirements.txt .
+
 # Copy all files from the current directory to the container's /app directory
-COPY requirements.txt
+COPY . .
 
 # Install necessary dependencies
 RUN apk add --no-cache \
@@ -34,6 +36,7 @@ RUN pip3 install --no-cache-dir --upgrade pip \
     && python3 -m pip install -U yt-dlp \
     && pip install --no-cache-dir -r requirements.txt
 
-# Set the command to run the application
-CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:$PORT app:app & python3 modules/main.py"]
+EXPOSE 10000
 
+# Set the command to run the application
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "app:app"]
