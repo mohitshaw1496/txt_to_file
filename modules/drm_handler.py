@@ -371,7 +371,7 @@ async def drm_handler(bot: Client, m: Message):
                             cchtml = f'<blockquote><b>⋅ ─ {t_name} ─ ⋅</b></blockquote>\n<b>{str(count).zfill(3)}.</b> {v_name} .html'
                     else:
                         if caption == "/cc1":
-                            cc = f'➭ **Index » {str(count).zfill(3)}**\n**➭ Title » `{name1} [{res}p].mkv`**\n<blockquote>**➭ 𝐁𝐚𝐭𝐜𝐡 » {b_name}**</blockquote>Q\n**➭ Quality {quality}**\n\n✨ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐄𝐃 𝐁𝐘 **: **{CR}\n━━━━━━━✦✗✦━━━━━━━\n'
+                            cc = f'➭ **Index » {str(count).zfill(3)}**\n**➭ Title » `{name1} [{res}p].mkv`**\n<blockquote>**➭ 𝐁𝐚𝐭𝐜𝐡 » {b_name}**</blockquote>\n**➭ Quality {quality}**\n\n✨ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐄𝐃 𝐁𝐘 **: **{CR}\n━━━━━━━✦✗✦━━━━━━━\n'
                             cc1 = f'➭ **Index » {str(count).zfill(3)}**\n**➭ Title » `{name1}.pdf`**\n<blockquote><b>**➭ 𝐁𝐚𝐭𝐜𝐡 » {b_name}**\n</blockquote>✨ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐄𝐃 𝐁𝐘 **:**{CR}\n━━━━━━━✦✗✦━━━━━━━\n'
                             cczip = f'[📁]Zip Id : {str(count).zfill(3)}\n**Zip Title :** `{name1}.zip`\n<blockquote><b>Batch Name :</b> {b_name}</blockquote>\n\n**Extracted by➤**{CR}\n' 
                             ccimg = f'[🖼️]Img Id : {str(count).zfill(3)}\n**Img Title :** `{name1}.jpg`\n<blockquote><b>Batch Name :</b> {b_name}</blockquote>\n\n**Extracted by➤**{CR}\n'
