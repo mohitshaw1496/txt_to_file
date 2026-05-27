@@ -4,28 +4,32 @@ WORKDIR /app
 
 COPY requirements.txt .
 
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y \
     gcc \
     libffi-dev \
-    musl-dev \
     ffmpeg \
     aria2 \
     make \
     g++ \
     cmake \
     wget \
-    unzip && \
-    wget -q https://github.com/axiomatic-systems/Bento4/archive/v1.6.0-639.zip && \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN wget -q https://github.com/axiomatic-systems/Bento4/archive/v1.6.0-639.zip && \
     unzip v1.6.0-639.zip && \
     cd Bento4-1.6.0-639 && \
     mkdir build && \
     cd build && \
     cmake .. && \
     make -j4 && \
-    cp bin/mp4decrypt /usr/local/bin/ && \
+    find . -name mp4decrypt && \
+    cp bin/mp4decrypt /usr/local/bin/ || cp mp4decrypt /usr/local/bin/ && \
     cd ../.. && \
     rm -rf Bento4-1.6.0-639 v1.6.0-639.zip
-    
+
+RUN pip install --no-cache-dir -r requirements.txt
+
 COPY . .
 
 EXPOSE 10000
