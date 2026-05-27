@@ -12,7 +12,9 @@ RUN apk add --no-cache \
     aria2 \
     make \
     g++ \
-    cmake && \
+    cmake \
+    wget \
+    unzip && \
     wget -q https://github.com/axiomatic-systems/Bento4/archive/v1.6.0-639.zip && \
     unzip v1.6.0-639.zip && \
     cd Bento4-1.6.0-639 && \
@@ -20,12 +22,10 @@ RUN apk add --no-cache \
     cd build && \
     cmake .. && \
     make -j$(nproc) && \
-    cp mp4decrypt /usr/local/bin/ &&\
+    cp mp4decrypt /usr/local/bin/ && \
     cd ../.. && \
     rm -rf Bento4-1.6.0-639 v1.6.0-639.zip
-
-RUN pip install --no-cache-dir -r requirements.txt
-
+    
 COPY . .
 
 EXPOSE 10000
