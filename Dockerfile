@@ -21,8 +21,8 @@ RUN apk add --no-cache \
     mkdir build && \
     cd build && \
     cmake .. && \
-    make -j$(nproc) && \
-    cp mp4decrypt /usr/local/bin/ && \
+    make -j4 && \
+    cp bin/mp4decrypt /usr/local/bin/ && \
     cd ../.. && \
     rm -rf Bento4-1.6.0-639 v1.6.0-639.zip
     
