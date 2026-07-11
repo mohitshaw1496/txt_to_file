@@ -5,7 +5,7 @@ from os import environ
 
 API_ID = int(environ.get("API_ID", "35125044"))
 API_HASH = environ.get("API_HASH", "443933fa1e307654bea9f06c1cf6727e")
-BOT_TOKEN = environ.get("BOT_TOKEN", " ")
+BOT_TOKEN = environ.get("BOT_TOKEN", "8269040529:AAFrIfR7Fct3cT1g3DknTF0d7Wfvqu4C32Y")
 
 OWNER = int(environ.get("OWNER", "6502857759"))
 CREDIT = environ.get("CREDIT", "[Ꮓ 𝐕𝐞𝐫𝐭𝐞𝐱](https://t.me/Z_Vertex_01)")
@@ -23,6 +23,7 @@ if int(OWNER) not in AUTH_USERS:
 api_url = "http://master-api-v3.vercel.app/"
 api_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzkxOTMzNDE5NSIsInRnX3VzZXJuYW1lIjoi4p61IFtvZmZsaW5lXSIsImlhdCI6MTczODY5MjA3N30.SXzZ1MZcvMp5sGESj0hBKSghhxJ3k1GTWoBUbivUe1I"
 # .....,.....,.......,...,.......,....., .....,.....,.......,...,.
+
 
 
 
